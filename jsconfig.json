@@ -1,7 +1,12 @@
+// tsconfig.json or jsconfig.json
 {
   "compilerOptions": {
+    "baseUrl": ".", // Points to the project root
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./*"] // Maps @/* to the root directory
+      // Or use "@/*": ["./src/*"] if your code is inside an src folder
     }
-  }
+    // ... other options
+  },
+  // ... other config
 }

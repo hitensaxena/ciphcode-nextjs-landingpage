@@ -1,6 +1,18 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Ciphcode Next.js Sample
+
+A modern landing page built with Next.js, Tailwind CSS, and React.
+
+## Prerequisites
+
+- Node.js 16.14 or later
+- npm or yarn
 
 ## Getting Started
+
+1. Clone the repository:
+```bash
+git clone [your-repository-url]
+```
 
 First, run the development server:
 
