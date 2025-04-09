@@ -2,6 +2,9 @@ import React from 'react';
 import { MonitorSmartphone, Palette, Smartphone, Briefcase, Box, Brain } from 'lucide-react';
 import ServiceCard from '@/components/ui/ServiceCard';
 import SectionHeading from '@/components/ui/SectionHeading';
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+import { fadeInUp, staggerContainer } from '@/utils/animations';
 
 const services = [
   {
@@ -37,22 +40,34 @@ const services = [
 ];
 
 const ServicesSection = () => {
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1
+  });
+
   return (
-    <section id="services" className="section-padding">
+    <motion.section 
+      ref={ref}
+      initial="initial"
+      animate={inView ? "animate" : "initial"}
+      exit="exit"
+      variants={staggerContainer}
+      id="services" 
+      className="section-padding"
+    >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeading>Our Services</SectionHeading>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <motion.div variants={fadeInUp}>
+          <SectionHeading>Our Services</SectionHeading>
+        </motion.div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, index) => (
-            <ServiceCard
-              key={index}
-              icon={service.icon}
-              title={service.title}
-              description={service.description}
-            />
+            <motion.div key={index} variants={fadeInUp}>
+              <ServiceCard {...service} />
+            </motion.div>
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

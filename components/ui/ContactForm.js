@@ -2,6 +2,23 @@
 
 import { useState } from 'react';
 import Button from './Button';
+import { motion } from 'framer-motion';
+
+const formAnimation = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: {
+      staggerChildren: 0.1
+    }
+  }
+};
+
+const inputAnimation = {
+  hidden: { opacity: 0, x: -20 },
+  visible: { opacity: 1, x: 0 }
+};
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -10,12 +27,6 @@ const ContactForm = () => {
     message: ''
   });
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Add form submission logic here
-    console.log('Form submitted:', formData);
-  };
-
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -23,53 +34,64 @@ const ContactForm = () => {
     });
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Handle form submission
+    console.log(formData);
+  };
+
   return (
-    <form onSubmit={handleSubmit} className="space-y-5">
-      <div>
-        <label htmlFor="name" className="form-label">Name</label>
+    <motion.form
+      variants={formAnimation}
+      initial="hidden"
+      animate="visible"
+      className="space-y-5"
+      onSubmit={handleSubmit}
+    >
+      <motion.div variants={inputAnimation}>
         <input
           type="text"
-          id="name"
           name="name"
-          required
-          placeholder="Your Full Name"
-          className="form-input"
           value={formData.name}
           onChange={handleChange}
+          placeholder="Your Name"
+          className="form-input w-full"
+          required
         />
-      </div>
-      <div>
-        <label htmlFor="email" className="form-label">Email</label>
+      </motion.div>
+
+      <motion.div variants={inputAnimation}>
         <input
           type="email"
-          id="email"
           name="email"
-          required
-          placeholder="your.email@example.com"
-          className="form-input"
           value={formData.email}
           onChange={handleChange}
-        />
-      </div>
-      <div>
-        <label htmlFor="message" className="form-label">Message</label>
-        <textarea
-          id="message"
-          name="message"
-          rows={4}
+          placeholder="Your Email"
+          className="form-input w-full"
           required
-          placeholder="Tell us about your project..."
-          className="form-input"
+        />
+      </motion.div>
+
+      <motion.div variants={inputAnimation}>
+        <textarea
+          name="message"
           value={formData.message}
           onChange={handleChange}
+          placeholder="Your Message"
+          className="form-input w-full h-32"
+          required
         />
-      </div>
-      <div className="text-left pt-2">
-        <Button type="submit" variant="primary" className="w-full md:w-auto">
+      </motion.div>
+
+      <motion.div variants={inputAnimation}>
+        <button
+          type="submit"
+          className="button primary w-full"
+        >
           Send Message
-        </Button>
-      </div>
-    </form>
+        </button>
+      </motion.div>
+    </motion.form>
   );
 };
 

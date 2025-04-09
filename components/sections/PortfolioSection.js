@@ -4,6 +4,8 @@ import { useState } from 'react';
 import ProjectCard from '@/components/ui/ProjectCard';
 import Button from '@/components/ui/Button';
 import SectionHeading from '@/components/ui/SectionHeading';
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 const portfolioItems = [
   {
@@ -36,10 +38,20 @@ const portfolioItems = [
 ];
 
 const PortfolioSection = () => {
-  const [selectedProject, setSelectedProject] = useState(null);
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1
+  });
 
   return (
-    <section id="portfolio" className="bg-background section-padding">
+    <motion.section
+      ref={ref}
+      initial={{ opacity: 0 }}
+      animate={inView ? { opacity: 1 } : { opacity: 0 }}
+      transition={{ duration: 0.8 }}
+      id="portfolio"
+      className="section-padding"
+    >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading>Case Studies</SectionHeading>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
@@ -57,7 +69,7 @@ const PortfolioSection = () => {
           <Button variant="black">View All Projects</Button>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

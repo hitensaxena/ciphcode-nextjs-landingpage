@@ -1,34 +1,30 @@
-import Link from 'next/link';
+import { motion } from 'framer-motion';
 
-const Button = ({ 
-  children, 
-  href, 
-  variant = 'primary', 
-  className = '', 
-  type = 'button',
-  onClick 
-}) => {
-  const baseStyles = 'btn';
-  const variants = {
-    primary: 'btn-green',
-    black: 'btn-black',
-    'outlined-dark': 'btn-outlined-dark'
+const Button = ({ children, variant = 'primary', className = '', href, ...props }) => {
+  const Component = href ? motion.a : motion.button;
+  
+  const getVariantClass = () => {
+    switch (variant) {
+      case 'outline':
+        return 'btn-outlined-dark';
+      case 'black':
+        return 'btn-black';
+      default:
+        return 'btn-green';
+    }
   };
 
-  const buttonClasses = `${baseStyles} ${variants[variant]} ${className}`;
-
-  if (href) {
-    return (
-      <Link href={href} className={buttonClasses}>
-        {children}
-      </Link>
-    );
-  }
-
   return (
-    <button type={type} className={buttonClasses} onClick={onClick}>
+    <Component
+      href={href}
+      className={`btn ${getVariantClass()} ${className}`}
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+      transition={{ type: "spring", stiffness: 400, damping: 10 }}
+      {...props}
+    >
       {children}
-    </button>
+    </Component>
   );
 };
 

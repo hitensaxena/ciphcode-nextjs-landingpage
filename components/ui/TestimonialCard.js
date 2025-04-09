@@ -1,9 +1,17 @@
 import Image from 'next/image';
 import { Star } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const TestimonialCard = ({ quote, author, role, image, rating = 5 }) => {
   return (
-    <div className="content-card">
+    <motion.div 
+      className="content-card"
+      initial={{ opacity: 0, scale: 0.9 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true }}
+      whileHover={{ y: -5 }}
+      transition={{ duration: 0.3 }}
+    >
       <div className="flex gap-1 mb-4">
         {[...Array(rating)].map((_, i) => (
           <Star key={i} className="text-primary fill-primary" size={16} />

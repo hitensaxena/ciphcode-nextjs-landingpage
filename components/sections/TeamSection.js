@@ -1,69 +1,64 @@
+import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { Linkedin, Twitter, Github } from 'lucide-react';
-import SectionHeading from '@/components/ui/SectionHeading';
 
 const teamMembers = [
   {
-    image: "https://placehold.co/120x120/e8e8ed/101c2b?text=T1",
-    name: "Member Name",
-    role: "Lead Designer",
-    social: [
-      { icon: <Linkedin />, url: "#" },
-      { icon: <Twitter />, url: "#" }
-    ]
+    name: 'John Doe',
+    role: 'CEO & Founder',
+    image: 'https://placehold.co/200x200'
   },
   {
-    image: "https://placehold.co/120x120/e8e8ed/101c2b?text=T2",
-    name: "Another Name",
-    role: "Senior Developer",
-    social: [
-      { icon: <Linkedin />, url: "#" },
-      { icon: <Github />, url: "#" }
-    ]
+    name: 'Jane Smith',
+    role: 'Lead Designer',
+    image: 'https://placehold.co/200x200'
   },
   {
-    image: "https://placehold.co/120x120/e8e8ed/101c2b?text=T3",
-    name: "Third Person",
-    role: "Project Manager",
-    social: [
-      { icon: <Linkedin />, url: "#" }
-    ]
+    name: 'Mike Johnson',
+    role: 'Senior Developer',
+    image: 'https://placehold.co/200x200'
   }
 ];
 
 const TeamSection = () => {
   return (
-    <section id="team" className="bg-background section-padding">
+    <motion.section
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      className="section-padding"
+    >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeading>Team</SectionHeading>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold mb-4">Our Team</h2>
+          <p className="text-on-surface-variant">Meet the talented people behind our success</p>
+        </div>
+        
+        <div className="grid md:grid-cols-3 gap-6">
           {teamMembers.map((member, index) => (
-            <div key={index} className="content-card-light">
-              <Image
-                src={member.image}
-                alt={member.name}
-                width={80}
-                height={80}
-                className="w-20 h-20 rounded-full mx-auto mb-3 border-4 border-white shadow-md"
-              />
-              <h4 className="text-base font-semibold mb-0.5">{member.name}</h4>
-              <p className="text-sm text-gray-500 mb-4">{member.role}</p>
-              <div className="flex justify-center space-x-3">
-                {member.social.map((link, idx) => (
-                  <a
-                    key={idx}
-                    href={link.url}
-                    className="text-gray-400 hover:text-primary transition-colors duration-200"
-                  >
-                    {link.icon}
-                  </a>
-                ))}
+            <motion.div
+              key={index}
+              whileHover={{ y: -10 }}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.2 }}
+              className="text-center"
+            >
+              <div className="relative w-48 h-48 mx-auto mb-4">
+                <Image
+                  src={member.image}
+                  alt={member.name}
+                  fill
+                  className="rounded-full object-cover"
+                />
               </div>
-            </div>
+              <h3 className="text-xl font-semibold text-white">{member.name}</h3>
+              <p className="text-on-surface-variant">{member.role}</p>
+            </motion.div>
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

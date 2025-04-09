@@ -54,10 +54,6 @@
     @apply scale-[0.98] brightness-90;
   }
 
-  .btn-black {
-    @apply bg-black text-white border-black hover:bg-[#222] hover:border-[#222];
-  }
-
   .btn-green {
     @apply bg-primary text-on-primary font-bold border-primary;
   }
@@ -65,49 +61,50 @@
   .btn-outlined-dark {
     @apply bg-transparent text-on-background border-outline hover:bg-surface-variant;
   }
+}
 
-  .content-card {
-    @apply bg-surface border border-outline-variant rounded-[var(--shape-corner-large)] p-6 
-    transition-all duration-200 overflow-hidden hover:border-outline hover:-translate-y-0.5;
-  }
+.content-card {
+  @apply bg-surface border border-outline-variant rounded-[var(--shape-corner-large)] p-6 
+  transition-all duration-200 overflow-hidden hover:border-outline hover:-translate-y-0.5;
+}
 
-  .content-card-light {
-    @apply bg-surface-light text-on-surface-light border border-[#e5e7eb] rounded-[var(--shape-corner-large)] 
-    p-6 transition-all duration-200 overflow-hidden shadow-sm 
-    hover:-translate-y-0.5 hover:shadow-md;
-  }
+.content-card-light {
+  @apply bg-surface-light text-on-surface-light border border-[#e5e7eb] rounded-[var(--shape-corner-large)] 
+  p-6 transition-all duration-200 overflow-hidden shadow-sm 
+  hover:-translate-y-0.5 hover:shadow-md;
+}
 
-  .form-input {
-    @apply font-[inherit] bg-surface-light text-on-surface-light border border-[#d1d5db] 
-    rounded-[var(--shape-corner-medium)] px-4 py-3 w-full text-sm transition-all duration-200
-    focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary focus:ring-opacity-20;
-  }
+.form-input {
+  @apply font-[inherit] bg-surface-light text-on-surface-light border border-[#d1d5db] 
+  rounded-[var(--shape-corner-medium)] px-4 py-3 w-full text-sm transition-all duration-200
+  focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary focus:ring-opacity-20;
+}
 
-  .form-label {
-    @apply text-sm text-gray-600 mb-1.5 block font-medium;
-  }
+.form-label {
+  @apply text-sm text-gray-600 mb-1.5 block font-medium;
+}
 
-  .nav-blur {
-    @apply bg-black/75 backdrop-blur-lg border-b border-outline-variant;
-  }
+.nav-blur {
+  @apply bg-black/75 backdrop-blur-lg border-b border-outline-variant;
+}
 
-  .section-padding {
-    @apply py-20 md:py-24;
-  }
+.section-padding {
+  @apply py-20 md:py-24;
+}
 
-  .section-heading {
-    @apply text-sm font-bold text-primary mb-6 text-center uppercase tracking-wider;
-  }
+.section-heading {
+  @apply text-sm font-bold text-primary mb-6 text-center uppercase tracking-wider;
+}
 
-  .process-item {
-    @apply flex items-center justify-between py-4 px-6 hover:bg-gray-50;
-  }
+.process-item {
+  @apply flex items-center justify-between py-4 px-6 hover:bg-gray-50;
+}
 
-  .process-number {
-    @apply text-primary font-bold text-sm mr-4 bg-primary-15 px-1.5 py-0.5 rounded;
-  }
+.process-number {
+  @apply bg-primary-15 text-primary font-bold text-sm px-3 py-1.5 rounded-full;
+}
 
-  .process-title {
-    @apply font-medium text-on-surface-light text-base flex items-center;
-  }
+/* Remove or comment out the old process-item and process-title classes as they're no longer needed */
+.process-title {
+  @apply font-medium text-on-surface-light text-base flex items-center;
 }
