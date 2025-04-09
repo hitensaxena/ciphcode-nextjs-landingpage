@@ -37,7 +37,7 @@ const HeroSection = () => {
             className="relative"
           >
             <Image
-              src="https://placehold.co/600x400"
+              src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop"
               alt="Hero Image"
               width={600}
               height={400}

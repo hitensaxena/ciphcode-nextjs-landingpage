@@ -5,17 +5,17 @@ const teamMembers = [
   {
     name: 'John Doe',
     role: 'CEO & Founder',
-    image: 'https://placehold.co/200x200'
+    image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=2574&auto=format&fit=crop'
   },
   {
     name: 'Jane Smith',
     role: 'Lead Designer',
-    image: 'https://placehold.co/200x200'
+    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=2574&auto=format&fit=crop'
   },
   {
     name: 'Mike Johnson',
     role: 'Senior Developer',
-    image: 'https://placehold.co/200x200'
+    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2370&auto=format&fit=crop'
   }
 ];
 

@@ -16,8 +16,8 @@ const ContactSection = () => {
               Fill out the form or reach out via email. We're excited to hear about your project.
             </p>
             <Image
-              src="https://placehold.co/100x100/ffffff/111827?text=Shape"
-              alt="Decorative shape"
+              src="https://images.unsplash.com/photo-1596526131083-e8c633c948d2?q=80&w=2574&auto=format&fit=crop"
+              alt="Contact decoration"
               width={100}
               height={100}
               className="mt-8 opacity-80"

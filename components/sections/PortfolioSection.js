@@ -9,7 +9,7 @@ import { useInView } from 'react-intersection-observer';
 
 const portfolioItems = [
   {
-    image: "https://placehold.co/600x400/1f2937/39ff14?text=Project+1",
+    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2372&auto=format&fit=crop",
     title: "Enterprise Platform",
     category: "Web Development",
     fullTitle: "Client A - Enterprise Platform",
@@ -18,7 +18,7 @@ const portfolioItems = [
     review: "Ciphcode delivered a robust platform..."
   },
   {
-    image: "https://placehold.co/600x400/1f2937/39ff14?text=Project+2",
+    image: "https://images.unsplash.com/photo-1557426272-fc759fdf7a8d?q=80&w=2400&auto=format&fit=crop",
     title: "Tech Startup Branding",
     category: "Brand Identity",
     fullTitle: "Client B - Tech Startup Branding",
@@ -27,7 +27,7 @@ const portfolioItems = [
     review: "The branding is bold..."
   },
   {
-    image: "https://placehold.co/600x400/1f2937/39ff14?text=Project+3",
+    image: "https://images.unsplash.com/photo-1551650975-87deedd944c3?q=80&w=2374&auto=format&fit=crop",
     title: "Consumer Mobile App",
     category: "Mobile Development",
     fullTitle: "Client C - Consumer Mobile App",
